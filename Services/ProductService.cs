@@ -12,7 +12,8 @@ namespace myshop.Services
         {
             con = new MongoClient("mongodb://172.18.0.35:27017");
             db = con.GetDatabase("dbwalter");
-            db.CreateCollection("Products");
+            if(db.GetCollection<Product>("Products") == null)
+                db.CreateCollection("Products");
         }
         public List<Product> GetAll()
         {
