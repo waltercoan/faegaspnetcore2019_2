@@ -17,9 +17,14 @@ namespace myshop.Controllers
             this.productService = productService;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(String search)
         {
-            var listProducts = productService.GetAll();
+            IList<Product> listProducts = null;
+            if(search == null){
+                listProducts = productService.GetAll();
+            }else{
+                listProducts = productService.GetAllByName(search);
+            }
             return View(listProducts);
         }
 

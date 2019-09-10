@@ -6,5 +6,6 @@ namespace myshop.Services
     public interface IProductService
     {
          List<Product> GetAll();
+         List<Product> GetAllByName(string name);
     }
 }

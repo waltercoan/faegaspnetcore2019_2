@@ -76,21 +76,22 @@ $(document).ready(function() {
 	</div> <!-- brand-wrap.// -->
 	</div>
 	<div class="col-lg-6 col-sm-8">
-			<form action="#" class="search-wrap">
+			@using (Html.BeginForm("Index","Home")){
 				<div class="input-group w-100">
-				    <input type="text" class="form-control" style="width:55%;" placeholder="Search">
-				    <select class="custom-select"  name="category_name">
+				    <input type="text" class="form-control" style="width:55%;" 
+						placeholder="1" name="search">
+				    <!--<select class="custom-select"  name="category_name">
 							<option value="">All type</option><option value="codex">Special</option>
 							<option value="comments">Only best</option>
 							<option value="content">Latest</option>
-					</select>
+					</select>!-->
 				    <div class="input-group-append">
 				      <button class="btn btn-primary" type="submit">
 				        <i class="fa fa-search"></i>
 				      </button>
 				    </div>
 			    </div>
-			</form> <!-- search-wrap .end// -->
+			}
 	</div> <!-- col.// -->
 	<div class="col-lg-3 col-sm-12">
 			<a href="#" class="widget-header float-md-right">

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using MongoDB.Driver;
 using myshop.Models;
@@ -19,6 +20,10 @@ namespace myshop.Services
         {
             var collection = db.GetCollection<Product>("Products");
             return collection.Find<Product>(p => true).ToList();
+        }
+        public List<Product> GetAllByName(string name){
+            var collection = db.GetCollection<Product>("Products");
+            return collection.Find<Product>(p => p.Name.ToLower().Contains(name.ToLower())).ToList();
         }
     }
 }
