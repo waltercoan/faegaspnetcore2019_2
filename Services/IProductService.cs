@@ -7,5 +7,6 @@ namespace myshop.Services
     {
          List<Product> GetAll();
          List<Product> GetAllByName(string name);
+         void save(Product product);
     }
 }

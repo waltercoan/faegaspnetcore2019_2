@@ -29,3 +29,4 @@ D:\2019\faegdotnetcore_segundosemestre\myshop\obj\Debug\netcoreapp2.2\myshop.pdb
 D:\2019\faegdotnetcore_segundosemestre\myshop\obj\Debug\netcoreapp2.2\myshop.csproj.CopyComplete
 D:\2019\faegdotnetcore_segundosemestre\myshop\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index2.g.cshtml.cs
 D:\2019\faegdotnetcore_segundosemestre\myshop\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
+d:\2019\faegdotnetcore_segundosemestre\myshop\obj\Debug\netcoreapp2.2\Razor\Views\Product\Form.g.cshtml.cs
