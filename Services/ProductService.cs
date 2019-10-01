@@ -12,8 +12,8 @@ namespace myshop.Services
         IMongoDatabase db;
         public ProductService()
         {
-            //con = new MongoClient("mongodb://172.18.0.35:27017");
-            con = new MongoClient("mongodb://localhost:27017");
+            con = new MongoClient("mongodb://172.18.0.35:27017");
+            //con = new MongoClient("mongodb://localhost:27017");
             db = con.GetDatabase("dbwalter");
             if(db.GetCollection<Product>("Products") == null)
                 db.CreateCollection("Products");
