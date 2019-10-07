@@ -20,5 +20,29 @@ namespace myshop.Controllers
         {
             return productService.GetAll();
         }
+
+        [HttpGet("{id}")]
+        public Product GetById(string Id){
+            return productService.GetById(Id);
+        }
+
+        [HttpPost]
+        public Product PostProduct([FromBody]Product product){
+            return productService.save(product);
+        }
+
+        [HttpPut("{id}")]
+        public Product PutProduct(string id, [FromBody]Product product){
+            if (!id.Equals(product.Id))
+            {
+                return null;
+            }
+            return productService.save(product);
+        }
+        
+        [HttpDelete("{id}")]
+        public void DeleteProduct(string id){
+            productService.delete(id);
+        }
     }
 }

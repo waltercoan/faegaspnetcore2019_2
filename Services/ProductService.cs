@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using myshop.Models;
@@ -10,10 +11,9 @@ namespace myshop.Services
     {
         MongoClient con;
         IMongoDatabase db;
-        public ProductService()
+        public ProductService([FromServices]MongoConfiguration mongoConfiguration)
         {
-            con = new MongoClient("mongodb://172.18.0.35:27017");
-            //con = new MongoClient("mongodb://localhost:27017");
+            con = new MongoClient(mongoConfiguration.Connection);
             db = con.GetDatabase("dbwalter");
             if(db.GetCollection<Product>("Products") == null)
                 db.CreateCollection("Products");
@@ -23,12 +23,18 @@ namespace myshop.Services
             var collection = db.GetCollection<Product>("Products");
             return collection.Find<Product>(p => true).ToList();
         }
+        public Product GetById(string id)
+        {
+            var collection = db.GetCollection<Product>("Products");
+            return collection.Find<Product>(p => p.Id == id).FirstOrDefault();
+        }
+       
         public List<Product> GetAllByName(string name){
             var collection = db.GetCollection<Product>("Products");
             return collection.Find<Product>(p => p.Name.ToLower().Contains(name.ToLower())).ToList();
         }
 
-        public void save(Product product)
+        public Product save(Product product)
         {
             var collection = db.GetCollection<Product>("Products");
             if(product.Id == null | product.Id == String.Empty)
@@ -41,6 +47,12 @@ namespace myshop.Services
                         .Set(p => p.Price, product.Price);
                 collection.UpdateOne(filter,updateDefinition);
             }
+            return product;
+        }
+        public void delete(string id)
+        {
+            var collection = db.GetCollection<Product>("Products");
+            collection.DeleteOne<Product>(p => p.Id == id);
         }
     }
 }

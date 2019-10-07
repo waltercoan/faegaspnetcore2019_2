@@ -44,6 +44,12 @@ namespace myshop
                     .Configure(tokenConfigurations);
             services.AddSingleton(tokenConfigurations);
 
+            var mongoConfiguration = new MongoConfiguration();
+            new ConfigureFromConfigurationOptions<MongoConfiguration>(
+                Configuration.GetSection("MongoConfiguration"))
+                    .Configure(mongoConfiguration);
+            services.AddSingleton(mongoConfiguration);
+
             services.AddAuthentication(authOptions =>
             {
                 authOptions.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

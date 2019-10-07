@@ -1,4 +1,5 @@
 using System;
+using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
 using myshop.Models;
 
@@ -8,10 +9,9 @@ namespace myshop.Services
     {
         MongoClient con;
         IMongoDatabase db;
-        public UserService()
+        public UserService([FromServices]MongoConfiguration mongoConfiguration)
         {
-            con = new MongoClient("mongodb://172.18.0.35:27017");
-            //con = new MongoClient("mongodb://localhost:27017");
+            con = new MongoClient(mongoConfiguration.Connection);
             db = con.GetDatabase("dbwalter");
             if(db.GetCollection<User>("Users") == null)
                 db.CreateCollection("Users");
