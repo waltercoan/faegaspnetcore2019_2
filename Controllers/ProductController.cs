@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using myshop.Models;
 using myshop.Services;
@@ -8,14 +9,17 @@ namespace myshop.Controllers
     public class ProductController  : Controller
     {
         private IProductService productService;
-        public ProductController(IProductService productService)
+        private IStorageService storageService;
+        public ProductController(IProductService productService, IStorageService storageService)
         {
             this.productService = productService;
+            this.storageService = storageService;
         }
         [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            var listProduct = this.productService.GetAll();
+            return View(listProduct);
         }
         [HttpGet]
         public IActionResult Form()
@@ -23,10 +27,13 @@ namespace myshop.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Form(Product product){
+        public async Task<IActionResult> Form(Product product){
             if (ModelState.IsValid)
             {
+                var fileName = await this.storageService.saveFile(product.Photo);
+                product.FileNameStorage = fileName;
                 this.productService.save(product);
+
                 return RedirectToAction("Index");
             }
             return View(product);

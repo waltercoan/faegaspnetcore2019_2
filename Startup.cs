@@ -83,6 +83,7 @@ namespace myshop
             
             services.AddScoped<IProductService,ProductService>();
             services.AddScoped<IUserService,UserService>();
+            services.AddScoped<IStorageService,StorageService>();
 
 
         }

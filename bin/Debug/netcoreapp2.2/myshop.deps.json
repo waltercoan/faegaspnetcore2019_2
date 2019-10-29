@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.2",
-    "signature": "fc0e924f10faecab1fbcb22997f5ff7a34f00c77"
+    "signature": "ef214870050eec6c515b418da4a056e189ea77cb"
   },
   "compilationOptions": {
     "defines": [
@@ -26,6 +26,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
+          "Microsoft.Azure.Storage.Blob": "11.1.0",
           "Microsoft.NETCore.App": "2.2.0",
           "MongoDB.Driver": "2.9.1"
         },
@@ -48,6 +49,52 @@
         },
         "compile": {
           "lib/netstandard2.0/DnsClient.dll": {}
+        }
+      },
+      "Microsoft.Azure.KeyVault.Core/2.0.4": {
+        "dependencies": {
+          "System.Runtime": "4.3.0",
+          "System.Threading.Tasks": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.5/Microsoft.Azure.KeyVault.Core.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.4.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.5/Microsoft.Azure.KeyVault.Core.dll": {}
+        }
+      },
+      "Microsoft.Azure.Storage.Blob/11.1.0": {
+        "dependencies": {
+          "Microsoft.Azure.Storage.Common": "11.1.0",
+          "NETStandard.Library": "2.0.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Azure.Storage.Blob.dll": {
+            "assemblyVersion": "11.1.0.0",
+            "fileVersion": "11.1.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Azure.Storage.Blob.dll": {}
+        }
+      },
+      "Microsoft.Azure.Storage.Common/11.1.0": {
+        "dependencies": {
+          "Microsoft.Azure.KeyVault.Core": "2.0.4",
+          "NETStandard.Library": "2.0.3",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Azure.Storage.Common.dll": {
+            "assemblyVersion": "11.1.0.0",
+            "fileVersion": "11.1.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Azure.Storage.Common.dll": {}
         }
       },
       "Microsoft.Win32.Primitives/4.3.0": {
@@ -3626,6 +3673,27 @@
       "sha512": "sha512-P34wUkeqU4FoQiOMV8OjpdeDZKs4d3r+VlHuKJ6eO5feiZgna3+9MF5orHRUn3DAv1g/HPE5hlkGucmxmsFfBw==",
       "path": "dnsclient/1.2.0",
       "hashPath": "dnsclient.1.2.0.nupkg.sha512"
+    },
+    "Microsoft.Azure.KeyVault.Core/2.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BSdPbmZ1BvptdfgECniezEwfQLAyT11MsOm4btXdswjIm8BkLK9eX//yO8ExlafErJg1tAKpCxfNyLTHSlXJvA==",
+      "path": "microsoft.azure.keyvault.core/2.0.4",
+      "hashPath": "microsoft.azure.keyvault.core.2.0.4.nupkg.sha512"
+    },
+    "Microsoft.Azure.Storage.Blob/11.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KFF3ntawI9o8OrhiQmw4xWAS31iJaPDkTSds7GfjOQBxfmjgdc9TNWGhFs0qealeNHxHfdsNCaUxhYJB1oEwtA==",
+      "path": "microsoft.azure.storage.blob/11.1.0",
+      "hashPath": "microsoft.azure.storage.blob.11.1.0.nupkg.sha512"
+    },
+    "Microsoft.Azure.Storage.Common/11.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8zGA1lDkw4Y+rgajmQBNoEc2EeleJmKTN0Va6s7cO7hYroLaxxhV3JWnebDXjoJS9THEQns8Ci2k31HwjRQqTg==",
+      "path": "microsoft.azure.storage.common/11.1.0",
+      "hashPath": "microsoft.azure.storage.common.11.1.0.nupkg.sha512"
     },
     "Microsoft.Win32.Primitives/4.3.0": {
       "type": "package",
